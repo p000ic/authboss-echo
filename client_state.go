@@ -8,7 +8,6 @@ import (
 	"github.com/labstack/echo/v4"
 	"net"
 	"net/http"
-	"reflect"
 	"strings"
 )
 
@@ -178,7 +177,7 @@ func (a *Authboss) LoadClientState(w http.ResponseWriter, r *http.Request) (*htt
 // writer by using the UnderlyingResponseWriter interface.
 func MustClientStateResponseWriter(w http.ResponseWriter) *ClientStateResponseWriter {
 	for {
-		fmt.Printf("##TYPE-OF-[%+v]##", reflect.TypeOf(w))
+		// fmt.Printf("##TYPE-OF-[%+v]##", reflect.TypeOf(w))
 		if e, ok := w.(*echo.Response); ok {
 			// fmt.Printf("%+v", w)
 			w = e.Writer
